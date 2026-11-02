@@ -1185,14 +1185,14 @@
                 </div>
                 <div>
                     <label id="label-resolve-lesson" class="block text-xs font-bold text-slate-700 mb-1">
-                        Lección aprendida y mejora preventiva *
+                        Lección aprendida y mejora preventiva (Opcional)
                     </label>
-                    <textarea id="resolve-lesson" rows="2" required
+                    <textarea id="resolve-lesson" rows="2"
                         class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500"
                         placeholder="Acción preventiva para evitar que vuelva a ocurrir..."></textarea>
                 </div>
                 <div id="resolve-error-msg" class="hidden p-2.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold text-center">
-                    Por favor llena ambas casillas obligatorias para cerrar el problema.
+                    Por favor describe qué se hizo para solucionar el problema.
                 </div>
             </div>
             <div class="flex justify-end gap-2 pt-2">
@@ -1369,6 +1369,7 @@
                 opActiveSubtitle: 'No olvides indicar cuando el problema ya se haya resuelto',
                 noActiveTickets: 'Sin fallas pendientes en planta',
                 statusOpen: 'ABIERTO',
+                statusInProgress: 'EN REPARACIÓN',
                 statusResolved: 'RESUELTO',
                 reportedBy: 'Reportado por',
                 equipmentLabel: 'Equipo',
@@ -1379,6 +1380,14 @@
                 reanalyzingBtn: 'Analizando...',
                 detailsBtn: 'Detalles',
                 viewSheetBtn: 'Ver Ficha',
+                startRepairBtn: 'Empezar a resolver problema',
+                resolvingBtn: 'Resolviendo problema (Clic para cerrar)',
+                repairRunningLegend: '⏱️ Ahora el tiempo de reparación está corriendo. Recuerda volver a presionar el botón amarillo para cerrar e indicar cuando el problema se haya resuelto.',
+                repairElapsedLabel: 'Tiempo en reparación:',
+                openDateTimeLabel: 'Fecha y Hora de Apertura',
+                repairStartTimeLabel: 'Inicio de Reparación',
+                repairDurationLabel: 'Tiempo de Reparación',
+                notStartedYet: 'Aún no iniciado',
                 resolvedBtn: 'Problema resuelto',
                 qrPlantTag: 'Reporte de Planta (QR)',
                 noDescription: 'Sin descripción',
@@ -1432,10 +1441,10 @@
                 resolveWhatDoneReq: '¿Qué se hizo para solucionar el problema? *',
                 resolveWhatDoneOpt: '¿Qué se hizo para solucionar el problema? (Opcional para Admin)',
                 resolveWhatDonePh: 'Describe la acción correctiva realizada...',
-                resolveLessonReq: 'Lección aprendida y mejora preventiva *',
-                resolveLessonOpt: 'Lección aprendida y mejora preventiva (Opcional para Admin)',
+                resolveLessonReq: 'Lección aprendida y mejora preventiva (Opcional)',
+                resolveLessonOpt: 'Lección aprendida y mejora preventiva (Opcional)',
                 resolveLessonPh: 'Acción preventiva para evitar que vuelva a ocurrir...',
-                resolveErrorMsg: 'Por favor llena ambas casillas obligatorias para cerrar el problema.',
+                resolveErrorMsg: 'Por favor describe qué se hizo para solucionar el problema.',
                 cancelBtn: 'Cancelar',
                 confirmCloseBtn: 'Confirmar Cierre',
                 detailModalTitle: 'Detalles del Ticket',
@@ -1514,6 +1523,7 @@
                 opActiveSubtitle: 'Do not forget to mark when the issue is resolved',
                 noActiveTickets: 'No pending issues in the plant',
                 statusOpen: 'OPEN',
+                statusInProgress: 'IN REPAIR',
                 statusResolved: 'RESOLVED',
                 reportedBy: 'Reported by',
                 equipmentLabel: 'Equipment',
@@ -1524,6 +1534,14 @@
                 reanalyzingBtn: 'Analyzing...',
                 detailsBtn: 'Details',
                 viewSheetBtn: 'View Details',
+                startRepairBtn: 'Start resolving issue',
+                resolvingBtn: 'Resolving issue (Click to close)',
+                repairRunningLegend: '⏱️ Repair time is now running. Remember to press the yellow button again to close and indicate when the issue has been resolved.',
+                repairElapsedLabel: 'Time in repair:',
+                openDateTimeLabel: 'Opening Date & Time',
+                repairStartTimeLabel: 'Repair Start Time',
+                repairDurationLabel: 'Repair Time Taken',
+                notStartedYet: 'Not started yet',
                 resolvedBtn: 'Issue Resolved',
                 qrPlantTag: 'Plant Report (QR)',
                 noDescription: 'No description',
@@ -1577,10 +1595,10 @@
                 resolveWhatDoneReq: 'What was done to solve the issue? *',
                 resolveWhatDoneOpt: 'What was done to solve the issue? (Optional for Admin)',
                 resolveWhatDonePh: 'Describe the corrective action taken...',
-                resolveLessonReq: 'Lesson learned and preventive action *',
-                resolveLessonOpt: 'Lesson learned and preventive action (Optional for Admin)',
+                resolveLessonReq: 'Lesson learned and preventive action (Optional)',
+                resolveLessonOpt: 'Lesson learned and preventive action (Optional)',
                 resolveLessonPh: 'Preventive action to avoid recurrence...',
-                resolveErrorMsg: 'Please fill in both required fields to close the issue.',
+                resolveErrorMsg: 'Please describe what was done to solve the issue.',
                 cancelBtn: 'Cancel',
                 confirmCloseBtn: 'Confirm Closure',
                 detailModalTitle: 'Ticket Details',
@@ -1659,6 +1677,7 @@
                 opActiveSubtitle: '问题解决后，请别忘了标记“已解决”',
                 noActiveTickets: '车间暂无待处理故障',
                 statusOpen: '待处理',
+                statusInProgress: '维修进行中',
                 statusResolved: '已解决',
                 reportedBy: '报告人',
                 equipmentLabel: '设备',
@@ -1669,6 +1688,14 @@
                 reanalyzingBtn: '正在解析...',
                 detailsBtn: '详情',
                 viewSheetBtn: '查看详情',
+                startRepairBtn: '开始处理故障',
+                resolvingBtn: '正在维修问题（点击完成关闭）',
+                repairRunningLegend: '⏱️ 维修计时现已开始运行！请在故障解决后再次点击黄色按钮完成关闭登记。',
+                repairElapsedLabel: '已用维修时间：',
+                openDateTimeLabel: '开启日期与时间',
+                repairStartTimeLabel: '开始维修时间',
+                repairDurationLabel: '维修耗时统计',
+                notStartedYet: '尚未开始维修',
                 resolvedBtn: '问题已解决',
                 qrPlantTag: '扫码报告 (QR)',
                 noDescription: '无描述',
@@ -1722,10 +1749,10 @@
                 resolveWhatDoneReq: '采取了什么措施解决该问题？ *',
                 resolveWhatDoneOpt: '采取了什么措施解决该问题？（管理员选填）',
                 resolveWhatDonePh: '请描述所采取的维修措施...',
-                resolveLessonReq: '吸取的教训与预防改进措施 *',
-                resolveLessonOpt: '吸取的教训与预防改进措施（管理员选填）',
+                resolveLessonReq: '吸取的教训与预防改进措施（选填）',
+                resolveLessonOpt: '吸取的教训与预防改进措施（选填）',
                 resolveLessonPh: '如何防止类似故障再次发生...',
-                resolveErrorMsg: '请填写所有必填项以关闭此问题。',
+                resolveErrorMsg: '请填写采取了什么措施解决该问题。',
                 cancelBtn: '取消',
                 confirmCloseBtn: '确认关闭',
                 detailModalTitle: '工单详情',
@@ -2030,6 +2057,9 @@
                 status: 'RESUELTO',
                 operatorName: 'Carlos Mendoza (tecnico1)',
                 createdAt: '2026-10-28T14:10:00.000Z',
+                repairStartedAt: '2026-10-28T14:22:00.000Z',
+                repairStartedAtDisplay: '14:22 hrs (28/10/2026)',
+                repairDurationText: '1 h 43 min',
                 closedAt: '16:05 hrs (28/10/2026)'
             }
         ];
@@ -2062,6 +2092,75 @@
             }
         }
         window.saveToLocalStorage = saveToLocalStorage;
+
+        // Formatear fecha/hora legible (HH:MM hrs (DD/MM/YYYY))
+        function formatDateTimeDisplay(dateObj) {
+            const d = (dateObj instanceof Date && !isNaN(dateObj.getTime())) ? dateObj : new Date();
+            const hours = String(d.getHours()).padStart(2, '0');
+            const minutes = String(d.getMinutes()).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const year = d.getFullYear();
+            return `${hours}:${minutes} hrs (${day}/${month}/${year})`;
+        }
+
+        // Formatear duración en horas, minutos y segundos desde que inició la reparación
+        function formatRepairDurationFromMs(diffMs) {
+            if (!diffMs || diffMs < 0) diffMs = 0;
+            const totalSeconds = Math.floor(diffMs / 1000);
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            if (hours > 0) {
+                return `${hours} h ${minutes} min ${seconds} s`;
+            }
+            if (minutes > 0) {
+                return `${minutes} min ${seconds} s`;
+            }
+            return `${seconds} s`;
+        }
+
+        // Iniciar el tiempo de reparación cuando el técnico presiona "Empezar a resolver problema"
+        function startSolvingTicket(ticketId) {
+            const ticket = tickets.find(t => t.id === ticketId);
+            if (!ticket) return;
+
+            // Si ya estaba en reparación, al segundo clic abre el modal de cerrar problema
+            if (ticket.repairStartedAt) {
+                openResolutionScreen(ticketId);
+                return;
+            }
+
+            const now = new Date();
+            ticket.repairStartedAt = now.toISOString();
+            ticket.repairStartedAtDisplay = formatDateTimeDisplay(now);
+            if (currentUser && currentUser.name) {
+                ticket.repairStartedBy = currentUser.name;
+            }
+
+            saveToLocalStorage();
+            if (typeof window.saveTicketToCloud === 'function') {
+                window.saveTicketToCloud(ticket);
+            }
+            renderOperatorTickets();
+            renderAdminDashboard();
+        }
+        window.startSolvingTicket = startSolvingTicket;
+
+        // Actualizar cada segundo los cronómetros en vivo de los tickets que están en reparación
+        function updateLiveRepairTimers() {
+            const nowMs = Date.now();
+            document.querySelectorAll('[data-live-repair-start]').forEach(el => {
+                const startIso = el.getAttribute('data-live-repair-start');
+                if (!startIso) return;
+                const startMs = new Date(startIso).getTime();
+                if (!isNaN(startMs)) {
+                    el.innerText = formatRepairDurationFromMs(nowMs - startMs);
+                }
+            });
+        }
+        setInterval(updateLiveRepairTimers, 1000);
 
         // Funciones auxiliares para el Generador de QR y Modal de Firebase
         function updatePlantQrCode() {
@@ -2696,7 +2795,8 @@ Interpreta el significado técnico real de este comentario chino hacia el españ
             whatDoneInput.value = '';
             lessonInput.value = '';
             whatDoneInput.required = !isAdminView;
-            lessonInput.required = !isAdminView;
+            // Lección aprendida ahora es siempre opcional tanto para Técnico como para Admin
+            lessonInput.required = false;
 
             if (labelWhat && labelLesson) {
                 if (isAdminView) {
@@ -2719,17 +2819,22 @@ Interpreta el significado técnico real de este comentario chino hacia el españ
             const ticket = tickets.find(t => t.id === ticketId);
             if (!ticket) return;
 
+            const now = new Date();
             ticket.status = 'RESUELTO';
             ticket.cause = t('closedByAdminMsg');
             ticket.lesson = t('closedByAdminLesson');
+            ticket.closedAt = formatDateTimeDisplay(now);
+            ticket.closedAtIso = now.toISOString();
 
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const day = String(now.getDate()).padStart(2, '0');
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            const year = now.getFullYear();
-            ticket.closedAt = `${hours}:${minutes} hrs (${day}/${month}/${year})`;
+            if (ticket.repairStartedAt) {
+                const startMs = new Date(ticket.repairStartedAt).getTime();
+                if (!isNaN(startMs)) {
+                    ticket.repairDurationMs = Math.max(0, now.getTime() - startMs);
+                    ticket.repairDurationText = formatRepairDurationFromMs(ticket.repairDurationMs);
+                }
+            } else {
+                ticket.repairDurationText = t('closedByAdminMsg');
+            }
 
             saveToLocalStorage();
             if (typeof window.saveTicketToCloud === 'function') {
@@ -2745,7 +2850,7 @@ Interpreta el significado técnico real de este comentario chino hacia el españ
         }
         window.closeResolutionModal = closeResolutionModal;
 
-        // Confirmar cierre del problema registrando la hora exacta de cierre
+        // Confirmar cierre del problema registrando la hora exacta de cierre y el tiempo de reparación
         function confirmResolveTicket() {
             const ticketId = document.getElementById('resolve-ticket-id').value;
             const ticket = tickets.find(t => t.id === ticketId);
@@ -2760,29 +2865,35 @@ Interpreta el significado técnico real de este comentario chino hacia el españ
             const whatDone = whatDoneInput.value.trim();
             const lesson = lessonInput.value.trim();
 
-            if (!isAdminView && (!whatDone || !lesson)) {
+            // Solo "¿Qué se hizo para solucionar el problema?" es obligatorio para el técnico; Lección aprendida es opcional
+            if (!isAdminView && !whatDone) {
                 if (errEl) errEl.classList.remove('hidden');
-                if (!whatDone) {
-                    whatDoneInput.focus();
-                } else {
-                    lessonInput.focus();
-                }
+                whatDoneInput.focus();
                 return;
             }
 
             if (errEl) errEl.classList.add('hidden');
 
+            const now = new Date();
             ticket.status = 'RESUELTO';
             ticket.cause = whatDone || t('closedByAdminMsg');
-            ticket.lesson = lesson || t('closedByAdminLesson');
+            ticket.lesson = lesson || '';
+            ticket.closedAt = formatDateTimeDisplay(now);
+            ticket.closedAtIso = now.toISOString();
 
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const day = String(now.getDate()).padStart(2, '0');
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            const year = now.getFullYear();
-            ticket.closedAt = `${hours}:${minutes} hrs (${day}/${month}/${year})`;
+            if (ticket.repairStartedAt) {
+                const startMs = new Date(ticket.repairStartedAt).getTime();
+                if (!isNaN(startMs)) {
+                    ticket.repairDurationMs = Math.max(0, now.getTime() - startMs);
+                    ticket.repairDurationText = formatRepairDurationFromMs(ticket.repairDurationMs);
+                }
+            } else {
+                const fallbackStartMs = parseTicketDate(ticket).getTime();
+                if (!isNaN(fallbackStartMs)) {
+                    ticket.repairDurationMs = Math.max(0, now.getTime() - fallbackStartMs);
+                    ticket.repairDurationText = formatRepairDurationFromMs(ticket.repairDurationMs);
+                }
+            }
 
             saveToLocalStorage();
             if (typeof window.saveTicketToCloud === 'function') {
@@ -2872,12 +2983,17 @@ Interpreta el significado técnico real de este comentario chino hacia el españ
 
             container.innerHTML = activeTickets.map(ticket => {
                 const showChineseToSpanishAI = containsChineseText(ticket.problemOriginal) && ticket.problemSpanish;
+                const isRepairing = Boolean(ticket.repairStartedAt);
+                const elapsedInitial = isRepairing
+                    ? formatRepairDurationFromMs(Date.now() - new Date(ticket.repairStartedAt).getTime())
+                    : '';
+
                 return `
-                    <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm space-y-2.5">
+                    <div class="bg-white p-3.5 rounded-xl border ${isRepairing ? 'border-amber-400 ring-2 ring-amber-200/70' : 'border-slate-200'} shadow-sm space-y-2.5">
                         <div class="flex items-center justify-between">
                             <span class="font-extrabold text-slate-800 text-xs">${ticket.id}</span>
-                            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800">
-                                ${t('statusOpen')}
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold ${isRepairing ? 'bg-amber-400 text-slate-900 animate-pulse' : 'bg-amber-100 text-amber-800'}">
+                                ${isRepairing ? t('statusInProgress') : t('statusOpen')}
                             </span>
                         </div>
 
@@ -2900,18 +3016,37 @@ Interpreta el significado técnico real de este comentario chino hacia el españ
                             ` : ''}
                         </div>
 
-                        <div class="flex items-center justify-between pt-1">
-                            <button type="button" onclick="openModal('${ticket.id}')" class="text-emerald-700 hover:text-emerald-800 text-xs font-extrabold flex items-center gap-1">
+                        ${isRepairing ? `
+                            <div class="bg-amber-50 border border-amber-300 rounded-xl p-2.5 space-y-1">
+                                <p class="text-[11px] font-extrabold text-amber-900 leading-snug">
+                                    ${t('repairRunningLegend')}
+                                </p>
+                                <div class="flex items-center justify-between text-[11px] font-black text-amber-800 pt-1 border-t border-amber-200/80">
+                                    <span><i class="fa-solid fa-stopwatch mr-1"></i>${t('repairElapsedLabel')}</span>
+                                    <span class="font-mono bg-amber-200/80 px-2 py-0.5 rounded text-slate-900" data-live-repair-start="${ticket.repairStartedAt}">${elapsedInitial}</span>
+                                </div>
+                            </div>
+                        ` : ''}
+
+                        <div class="flex items-center justify-between pt-1 gap-2">
+                            <button type="button" onclick="openModal('${ticket.id}')" class="text-emerald-700 hover:text-emerald-800 text-xs font-extrabold flex items-center gap-1 shrink-0">
                                 <i class="fa-solid fa-circle-info"></i>
                                 <span>${t('detailsBtn')}</span>
                             </button>
 
-                            ${!isQrReporterSession ? `
-                                <button type="button" onclick="openResolutionScreen('${ticket.id}')" class="touch-active bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2 px-3.5 rounded-xl shadow-sm flex items-center gap-1">
-                                    <i class="fa-solid fa-check"></i>
-                                    <span>${t('resolvedBtn')}</span>
-                                </button>
-                            ` : `
+                            ${!isQrReporterSession ? (
+                                isRepairing ? `
+                                    <button type="button" onclick="openResolutionScreen('${ticket.id}')" class="touch-active bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-black py-2.5 px-3.5 rounded-xl shadow-md flex items-center gap-1.5 border border-amber-500">
+                                        <i class="fa-solid fa-screwdriver-wrench animate-bounce"></i>
+                                        <span>${t('resolvingBtn')}</span>
+                                    </button>
+                                ` : `
+                                    <button type="button" onclick="startSolvingTicket('${ticket.id}')" class="touch-active bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2 px-3.5 rounded-xl shadow-sm flex items-center gap-1.5">
+                                        <i class="fa-solid fa-play"></i>
+                                        <span>${t('startRepairBtn')}</span>
+                                    </button>
+                                `
+                            ) : `
                                 <span class="text-[11px] text-slate-400 italic">${t('qrPlantTag')}</span>
                             `}
                         </div>
@@ -3237,22 +3372,26 @@ Interpreta el significado técnico real de este comentario chino hacia el españ
 
             listContainer.innerHTML = filteredTickets.map(ticket => {
                 const isResolved = ticket.status === 'RESUELTO';
+                const isRepairing = !isResolved && Boolean(ticket.repairStartedAt);
                 const hasChineseComment = containsChineseText(ticket.problemOriginal);
                 const showChineseToSpanishAI = hasChineseComment && ticket.problemSpanish;
+                const openFormatted = (ticket.datetime || '').replace('T', ' ');
+                const liveElapsed = isRepairing
+                    ? formatRepairDurationFromMs(Date.now() - new Date(ticket.repairStartedAt).getTime())
+                    : '';
 
                 return `
-                    <div class="bg-white rounded-2xl border ${isResolved ? 'border-emerald-200' : 'border-amber-200'} shadow-sm p-5 space-y-3.5">
+                    <div class="bg-white rounded-2xl border ${isResolved ? 'border-emerald-200' : (isRepairing ? 'border-amber-400 ring-2 ring-amber-100' : 'border-amber-200')} shadow-sm p-5 space-y-3.5">
                         <div class="flex flex-wrap items-start justify-between gap-2 border-b border-slate-100 pb-3">
                             <div>
                                 <div class="flex items-center gap-2">
                                     <span class="text-xs font-black px-2.5 py-0.5 rounded-lg bg-slate-900 text-white">${ticket.id}</span>
                                     <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold ${
-                                        isResolved ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'
+                                        isResolved
+                                            ? 'bg-emerald-100 text-emerald-800'
+                                            : (isRepairing ? 'bg-amber-400 text-slate-950 animate-pulse' : 'bg-amber-100 text-amber-800')
                                     }">
-                                        ${isResolved ? t('statusResolved') : t('statusOpen')}
-                                    </span>
-                                    <span class="text-xs text-slate-400 font-semibold">
-                                        <i class="fa-regular fa-calendar mr-1"></i>${ticket.datetime.replace('T', ' ')}
+                                        ${isResolved ? t('statusResolved') : (isRepairing ? t('statusInProgress') : t('statusOpen'))}
                                     </span>
                                 </div>
                                 <h4 class="text-sm font-extrabold text-slate-900 mt-1.5">${ticket.area}</h4>
@@ -3269,6 +3408,44 @@ Interpreta el significado técnico real de este comentario chino hacia el españ
                                     </span>
                                 </div>
                             ` : ''}
+                        </div>
+
+                        <!-- Apartado de Tiempos para el Administrador: Fecha/Hora de Apertura, Inicio de Reparación y Contador de Tiempo de Reparación -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                            <div class="bg-slate-50 border border-slate-200 rounded-xl p-2.5">
+                                <span class="text-[10px] font-extrabold text-slate-500 uppercase block">
+                                    <i class="fa-regular fa-calendar-plus mr-1 text-slate-600"></i>${t('openDateTimeLabel')}
+                                </span>
+                                <span class="text-xs font-black text-slate-900 mt-0.5 block">${openFormatted || '-'}</span>
+                            </div>
+
+                            <div class="bg-amber-50/70 border border-amber-200 rounded-xl p-2.5">
+                                <span class="text-[10px] font-extrabold text-amber-700 uppercase block">
+                                    <i class="fa-solid fa-play mr-1"></i>${t('repairStartTimeLabel')}
+                                </span>
+                                <span class="text-xs font-black text-amber-950 mt-0.5 block">
+                                    ${ticket.repairStartedAtDisplay || t('notStartedYet')}
+                                </span>
+                            </div>
+
+                            <div class="${isResolved ? 'bg-emerald-50 border-emerald-200' : (isRepairing ? 'bg-amber-100/90 border-amber-400' : 'bg-slate-50 border-slate-200')} border rounded-xl p-2.5">
+                                <span class="text-[10px] font-extrabold ${isResolved ? 'text-emerald-700' : (isRepairing ? 'text-amber-900' : 'text-slate-500')} uppercase block">
+                                    <i class="fa-solid fa-stopwatch mr-1"></i>${t('repairDurationLabel')}
+                                </span>
+                                ${isResolved ? `
+                                    <span class="text-xs font-black text-emerald-900 mt-0.5 block font-mono">
+                                        ${ticket.repairDurationText || '-'}
+                                    </span>
+                                ` : (isRepairing ? `
+                                    <span class="text-xs font-black text-slate-950 mt-0.5 block font-mono" data-live-repair-start="${ticket.repairStartedAt}">
+                                        ${liveElapsed}
+                                    </span>
+                                ` : `
+                                    <span class="text-xs font-bold text-slate-400 mt-0.5 block">
+                                        ${t('notStartedYet')}
+                                    </span>
+                                `)}
+                            </div>
                         </div>
 
                         <!-- Descripción Original y (solo si fue escrito en Chino) su Traducción/Interpretación IA a Español -->
